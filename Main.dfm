@@ -277,18 +277,19 @@ object Form1: TForm1
     00000FFF0000FE0000001FFF0000FE0000003FFF0000FF000000FFFF0000FF80
     0001FFFF0000FFC00003FFFF0000FFF8000FFFFF0000FFFE007FFFFF0000}
   OldCreateOrder = False
+  Position = poScreenCenter
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel
-    Left = 5
-    Top = 26
-    Width = 89
-    Height = 14
+    Left = 8
+    Top = 8
+    Width = 97
+    Height = 16
     Caption = #1050#1091#1088#1089#1089' '#1074#1072#1083#1102#1090#1099
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -12
+    Font.Height = -13
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentFont = False
@@ -303,9 +304,9 @@ object Form1: TForm1
   object Label3: TLabel
     Left = 453
     Top = 49
-    Width = 233
+    Width = 237
     Height = 16
-    Caption = #1042#1085#1080#1084#1072#1085#1080#1077'  '#1080#1076#1077#1090' '#1087#1088#1086#1094#1077#1089#1089' '#1086#1073#1072#1073#1086#1090#1082#1080'!'
+    Caption = #1042#1085#1080#1084#1072#1085#1080#1077' '#1080#1076#1077#1090' '#1087#1088#1086#1094#1077#1089#1089' '#1086#1073#1088#1072#1073#1086#1090#1082#1080'!'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -13
@@ -841,6 +842,26 @@ object Form1: TForm1
       FF7FFF7FFF7FFF7FFF7FFF7FFF7FFF7FFF7FFF7FFF7FFF7FFF7FFF7FFF7FFF7F
       FF7FFF7FFF7FFF7FFF7FFF7FFF7FFF7FFF7FFF7FFF7F}
   end
+  object Label4: TLabel
+    Left = 79
+    Top = 34
+    Width = 26
+    Height = 16
+    Caption = #1075#1088#1085'.'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label5: TLabel
+    Left = 15
+    Top = 182
+    Width = 31
+    Height = 13
+    Caption = 'Label5'
+  end
   object Button1: TButton
     Left = 143
     Top = 20
@@ -848,6 +869,7 @@ object Form1: TForm1
     Height = 33
     Caption = #1055#1077#1088#1074#1080#1095#1085#1072#1103' '#1086#1073#1088#1072#1073#1086#1090#1082#1072' '#1087#1088#1072#1081#1089#1072
     TabOrder = 0
+    OnClick = Button1Click
   end
   object Button2: TButton
     Left = 143
@@ -856,6 +878,7 @@ object Form1: TForm1
     Height = 30
     Caption = #1069#1082#1089#1087#1086#1088#1090' '#1086#1073#1088#1072#1073#1086#1090#1072#1085#1085#1086#1075#1086' '#1092#1072#1081#1083#1072
     TabOrder = 1
+    OnClick = Button2Click
   end
   object Button3: TButton
     Left = 143
@@ -866,12 +889,18 @@ object Form1: TForm1
     TabOrder = 2
   end
   object MaskEdit1: TMaskEdit
-    Left = 96
-    Top = 24
-    Width = 41
-    Height = 21
-    EditMask = '000,00;1;_'
+    Left = 8
+    Top = 28
+    Width = 65
+    Height = 27
+    EditMask = '990,99;1;_'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
     MaxLength = 6
+    ParentFont = False
     TabOrder = 3
     Text = '   ,  '
   end

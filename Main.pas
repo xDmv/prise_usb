@@ -229,6 +229,7 @@ begin
       Begin
          sheet.cells[i,1]:=SG1.Cells[0,i];
          sheet.cells[i,2]:=SG1.Cells[1,i];
+         if SG1.Cells[0,i]='' then sheet.cells[i,2].Font.Bold := True;
          s:=SG1.Cells[2,i];
          if s<>'' then sheet.cells[i,3]:=strtofloat(SG1.Cells[2,i]);
          sheet.cells[i,4]:=SG1.Cells[3,i];

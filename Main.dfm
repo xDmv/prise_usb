@@ -4,9 +4,9 @@ object Form1: TForm1
   Caption = #1054#1073#1088#1072#1073#1086#1090#1082#1072' '#1087#1088#1072#1081#1089#1072' it-planet'
   ClientHeight = 487
   ClientWidth = 715
-  Color = clBtnFace
+  Color = cl3DDkShadow
   Font.Charset = DEFAULT_CHARSET
-  Font.Color = clWindowText
+  Font.Color = clScrollBar
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
@@ -288,7 +288,7 @@ object Form1: TForm1
     Height = 16
     Caption = #1050#1091#1088#1089#1089' '#1074#1072#1083#1102#1090#1099
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
+    Font.Color = clScrollBar
     Font.Height = -13
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
@@ -308,7 +308,7 @@ object Form1: TForm1
     Height = 16
     Caption = #1042#1085#1080#1084#1072#1085#1080#1077' '#1080#1076#1077#1090' '#1087#1088#1086#1094#1077#1089#1089' '#1086#1073#1088#1072#1073#1086#1090#1082#1080'!'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
+    Font.Color = clScrollBar
     Font.Height = -13
     Font.Name = 'Tahoma'
     Font.Style = [fsBold, fsUnderline]
@@ -849,7 +849,7 @@ object Form1: TForm1
     Height = 16
     Caption = #1075#1088#1085'.'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
+    Font.Color = clScrollBar
     Font.Height = -13
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
@@ -868,6 +868,12 @@ object Form1: TForm1
     Width = 201
     Height = 33
     Caption = #1055#1077#1088#1074#1080#1095#1085#1072#1103' '#1086#1073#1088#1072#1073#1086#1090#1082#1072' '#1087#1088#1072#1081#1089#1072
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clMenu
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
     TabOrder = 0
     OnClick = Button1Click
   end
@@ -877,6 +883,12 @@ object Form1: TForm1
     Width = 201
     Height = 30
     Caption = #1069#1082#1089#1087#1086#1088#1090' '#1086#1073#1088#1072#1073#1086#1090#1072#1085#1085#1086#1075#1086' '#1092#1072#1081#1083#1072
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clMenu
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
     TabOrder = 1
     OnClick = Button2Click
   end
@@ -885,7 +897,14 @@ object Form1: TForm1
     Top = 99
     Width = 201
     Height = 34
+    Cursor = crHandPoint
     Caption = #1055#1088#1080#1082#1088#1077#1087#1080#1090#1100' '#1086#1073#1088#1072#1073#1086#1090#1072#1085#1085#1099#1081' '#1092#1072#1081#1083
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clMenu
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
     TabOrder = 2
   end
   object MaskEdit1: TMaskEdit
@@ -893,9 +912,10 @@ object Form1: TForm1
     Top = 28
     Width = 65
     Height = 27
+    Color = clInactiveCaption
     EditMask = '990,99;1;_'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
+    Font.Color = clScrollBar
     Font.Height = -16
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
@@ -908,12 +928,13 @@ object Form1: TForm1
     Left = 0
     Top = 201
     Width = 715
-    Height = 134
+    Height = 217
+    Color = cl3DDkShadow
     ColCount = 4
-    FixedColor = clBackground
+    FixedColor = clGray
     FixedCols = 0
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
+    Font.Color = clScrollBar
     Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
@@ -932,6 +953,12 @@ object Form1: TForm1
     Width = 201
     Height = 34
     Caption = #1069#1082#1089#1087#1086#1088#1090' '#1076#1072#1085#1085#1099#1093' '#1074' '#1092#1072#1081#1083' '#1089#1072#1081#1090#1072
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clMenu
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
     TabOrder = 5
   end
   object PB1: TProgressBar
@@ -943,9 +970,9 @@ object Form1: TForm1
   end
   object SG2: TStringGrid
     Left = 0
-    Top = 341
+    Top = 424
     Width = 715
-    Height = 146
+    Height = 63
     ColCount = 4
     FixedColor = clBackground
     FixedCols = 0

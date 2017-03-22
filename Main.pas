@@ -54,16 +54,21 @@ Const
 var
   d: TDateTime;
   ExLApp, Sheet : OLEVariant;
-  i, j, r, c, q:integer;
+  i, j, r, c, q, new:integer;
   color1, color2 , ogid1, ogid2, kod, razdel,p,prise :string;
+  del,del2:string;
   kurs, temp, tempr:real;
 begin
+  Imk1.Visible:=false;
+  Imz1.Visible:=false;
   Label3.Visible:=true;
   d:=now;
   PB1.Visible:=true;
   SG1.Visible:=true;
-
+  prise:='';
   if OpenDialog1.Execute then prise:=OpenDialog1.FileName;
+  if prise='' then Begin Imk1.Visible:=true; exit; end;
+  
   ExLApp:=CreateOleObject('Excel.Application');
   ExLApp.Visible:=false;
   ExLApp.Workbooks.Open(prise);
@@ -121,7 +126,7 @@ begin
              or ((ogid1='Мыши, Коврики') and (sheet.cells[j+12,1].Interior.Color=color2))
              or ((ogid1='Наушники') and (sheet.cells[j+12,1].Interior.Color=color2))
              or ((ogid1='Ноутбуки, Ультрабуки') and (sheet.cells[j+12,1].Interior.Color=color2))
-             or ((ogid1='Ноутбучные и планшетные аксессуары, Apple') and (sheet.cells[j+12,1].Interior.Color=color2))
+             or ((ogid1='Ноутбучные и планшетные аксессуары, Apple   ') and (sheet.cells[j+12,1].Interior.Color=color2))
              or ((ogid1='Память') and (sheet.cells[j+12,1].Interior.Color=color2))
              or ((ogid1='Планшеты (планшетные компьютеры)') and (sheet.cells[j+12,1].Interior.Color=color2))
              or ((ogid1='Планшеты графические, Интерактивные доски') and (sheet.cells[j+12,1].Interior.Color=color2))
@@ -139,14 +144,58 @@ begin
              or ((ogid1='Техника б.у.') and (sheet.cells[j+12,1].Interior.Color=color2))
              or ((ogid1='Фотоаппараты') and (sheet.cells[j+12,1].Interior.Color=color2))
              or ((ogid1='Электронные книги, переводчики') and (sheet.cells[j+12,1].Interior.Color=color2))
-             then
-             i:=0
-             Else
-             Begin
-                if (i=0)and(sheet.cells[j+12,1].Interior.Color<>color2) then i:=0
-                Else i:=1;
 
-             End;
+             then
+              i:=0
+             Else
+              Begin
+                del := sheet.cells[j+12,1];
+                del2 := sheet.cells[j+12,2];
+                if ((del='')and(del2<>'iNeXT РАСПРОДАЖА') and (new=1) and (i=1) and (sheet.cells[j+12,1].Interior.Color<>color2))
+               { or ((del='')and(del2<>'Варочные поверхности, Духовые шкафы,Вытяжки') and (new=1) and (i=1) and (sheet.cells[j+12,1].Interior.Color<>color2))
+                or ((del='')and(del2<>'Медтехника') and (new=1) and (i=1) and (sheet.cells[j+12,1].Interior.Color<>color2))
+                or ((del='')and(del2<>'Посуда') and (new=1) and (i=1) and (sheet.cells[j+12,1].Interior.Color<>color2))
+                or ((del='')and(del2<>'Прочее') and (new=1) and (i=1) and (sheet.cells[j+12,1].Interior.Color<>color2))
+                }
+                then i:=0;
+                if ((i=0)and(sheet.cells[j+12,1].Interior.Color<>color2))  then
+                  Begin
+                      if ((del='')and(del2='iNeXT РАСПРОДАЖА'))
+                   {   or ((del='')and(del2='Варочные поверхности, Духовые шкафы,Вытяжки'))
+                      or ((del='')and(del2='Медтехника'))
+                      or ((del='')and(del2='Посуда'))
+                      or ((del='')and(del2='Прочее'))
+                      }
+                      then
+                      begin
+                        i := 1;
+                        new :=1;
+                      end
+                      else
+                        new:=0;
+                      if
+                      (del='')and(del2<>'iNeXT РАСПРОДАЖА')
+                     { or ((del='')and( del2<>'Варочные поверхности, Духовые шкафы,Вытяжки'))
+                      or ((del='')and(del2<>'Медтехника'))
+                      or ((del='')and(del2<>'Посуда'))
+                      or ((del='')and(del2<>'Прочее'))
+                      }
+                      then
+                        begin
+                           i := 0;
+                        end
+                        else
+                        begin
+                          if (del<>'')and(del2<>'') and (i=0) then  i :=0
+                           else
+                             i:=1;
+                        end;
+                     // i:=0
+                  End
+                Else
+                   i:=1;
+
+              End;
         End;
 
       if i=0 then
@@ -235,12 +284,15 @@ begin
          sheet.cells[i,4]:=SG1.Cells[3,i];
          PB1.Position:=i;
       End;
+  sheet.Columns.Range['B:B'].ColumnWidth := 100;
   PB1.Position:=SG1.RowCount;
   PB1.Visible:=false;
   Label5.Visible:=true;
   Label5.Caption:='Время чтения StringGrid '+FormatDateTime('hh:mm:ss:zzz', Now()-d)+' Колличество строк:'+IntToStr(SG1.RowCount);
 
   ExLApp.Visible:=true;
+
+  Imz2.Visible:=true;
 end;
 
 procedure TForm1.Button5Click(Sender: TObject);
